@@ -16,3 +16,56 @@ cantidad actual de café “no alcanza” para llenar la taza, se sirve lo que q
 • vaciarCafetera(): pone la cantidad de café actual en cero.
 • agregarCafe(int cantidad): añade a la cafetera la cantidad de café indicada. Solo se puede llenar 
 hasta la capacidad Máxima.
+
+Solución del profe:
+
+public class Cafetera implements Comparable <Cafetera>{
+
+	private int capacidadMáxima;
+	private int capacidadActual;
+	
+	Cafetera( int capacidadMáxima, int cantidad){
+		this.capacidadMáxima = capacidadMáxima;
+		this.capacidadActual = (capacidadMáxima > cantidad)? cantidad: capacidadMáxima;
+	}
+	
+	Cafetera (){
+		this(1000,0);
+	}
+	
+	Cafetera( int valor){
+		this(valor,0);
+	}
+	
+	
+	public int getCapacidadMáxima() {
+		return capacidadMáxima;
+	}
+
+	public int getCapacidadActual() {
+		return capacidadActual;
+	}
+
+	public void llenarCafetera(){
+		capacidadActual = capacidadMáxima;
+	}
+	
+	public void vaciarCafetera(){
+		capacidadActual = 0;
+	}
+	
+	public void servirTaza ( int vtaza){
+		capacidadActual -= vtaza;
+		if ( capacidadActual <0) capacidadActual = 0;
+	}
+	
+	public void agregarCafe ( int vcafe){
+		capacidadActual += vcafe;
+		if ( capacidadActual > capacidadMáxima) capacidadActual = capacidadMáxima;
+	}
+
+    // Método para ordenar cafeteras por capacidad Actual
+	public int compareTo(Cafetera o) {	
+		return this.capacidadActual - o.capacidadActual;
+	}
+	
