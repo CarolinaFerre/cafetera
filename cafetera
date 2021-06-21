@@ -1,0 +1,317 @@
+package ejerciciocafetera;
+import java.util.Scanner;
+
+public class Cafetera {
+	static Scanner sc=new Scanner(System.in);
+	//variables del primer objeto cafetera1
+	static boolean llena=true;
+	
+	//variables del segundo objeto cafetera2
+	protected int cafeteramaxima1;
+	protected static int cafeteraactual1;
+	static boolean llena2=true;
+
+	//variables del tercer objeto cafetera3
+	protected int cafeteramaxima2;
+	protected int cafeteraactual2;
+	static int maximo;
+	static boolean llena3=true;
+
+	//constructor sin parámetros con valores estáticos y privados del primer objeto cafetera1
+	public Cafetera() {
+		
+		this.cafeteraMaxima=1000;
+		this.cafeteraActual=0;
+	}
+	//constructor del segundo objeto cafetera2 con primer valor dado por usuario y segundo valor 0
+	public 	Cafetera(int cafeteramaxima1) {
+		this.cafeteramaxima1=cafeteramaxima1;
+		this.cafeteraactual1=0;
+	}
+	//constructor del tercer objeto cafetera3 con ambos valores dados por el main
+	public Cafetera(int cafeteramaxima2,int cafeteraactual2) {
+		this.cafeteramaxima2=cafeteramaxima2;
+		this.cafeteraactual2=cafeteraactual2;
+	}
+	public int determinarMaximo(int cafeteramaxima2,int cafeteraactual2) {
+		if (cafeteramaxima2<cafeteraactual2) {
+			this.cafeteramaxima2=this.cafeteraactual2;
+		}
+		return this.cafeteramaxima2;
+	//métodos para llamar a los atributos del primer objeto cafetera1
+	}
+	public int getCafeteraMaxima() {
+		return this.cafeteraMaxima;
+	}
+	public int getCafeteraActual() {
+		return this.cafeteraActual;
+	}
+	//métodos privados de atributos del primer objeto cafetera1
+	private int cafeteraMaxima;
+	private int cafeteraActual;
+	
+	//métodos para llamar a los atributos del segundo objeto cafetera2
+	public int CafeteraMaxima1(int cafeteramaxima1) {
+		return cafeteramaxima1;
+	}
+	public int CafeteraActual1(int cafeteraactual1) {
+		return cafeteraactual1;
+	}
+	//métodos para llamar a los atributos del tercer objeto cafetera3
+	
+	public int CafeteraActual2(int cafeteraactual2) {
+		return cafeteraactual2;
+	}
+	//métodos de acciones a realizar con las cafeteras
+	public boolean llenarCafetera1(boolean llena) {
+		
+		if ((cafeteraActual==0)&(cafeteraMaxima==0)) {
+			return llena=false;
+		}else if (cafeteraActual==cafeteraMaxima) {
+			return llena=true;
+		}else {
+			return llena=false;
+		}
+	}
+	public boolean llenarCafetera2(boolean llena2) {
+		
+		if ((cafeteraactual1==0)&(cafeteramaxima1==0)) {
+			return llena=false;
+		}else if (cafeteraactual1==cafeteramaxima1) {
+			return llena2=true;
+		}else {
+			return llena2=false;
+		}
+	}
+	public boolean llenarCafetera3(boolean llena3) {
+		
+		if ((cafeteraactual2==0)&(cafeteramaxima2==0)) {
+			return llena=false;
+		}else if (cafeteraactual2==cafeteramaxima2) {
+			return llena3=true;
+		}else {
+			return llena3=false;
+		}
+	}
+	public void  servirTaza1(int cantidadActual) {
+		if (cafeteraActual==0) {
+			System.out.println("No podemos servirle su café porque no dispone de café");
+		}else {
+			System.out.println("A usted se le ha servido un café con la siguiente cantidad= ");
+			if(cafeteraActual>0) {
+				double servido1=0.1;
+				System.out.print(servido1+" litros");
+				this.cafeteraActual=(int) (this.cafeteraActual-servido1);
+				System.out.println("Le queda en la cafetera= "+this.cafeteraActual+" litros");
+				
+			}
+		}
+	}
+	public void  servirTaza2(int cantidadaactual1) {
+		if (cafeteraactual1==0) {
+			System.out.println("No podemos servirle su café porque no dispone de café");
+		}else {
+			System.out.println("A usted se le ha servido un café con la siguiente cantidad= ");
+			if(cafeteraactual1>0) {
+				double servido2=0.1;
+				System.out.print(servido2+" litros");
+				this.cafeteraactual1=(int) (this.cafeteraactual1-servido2);
+				System.out.println("Le queda en la cafetera= "+this.cafeteraactual1+" litros");
+			}
+		}
+	}
+	public void  servirTaza3(int cantidadaactual2) {
+		if (cafeteraactual2==0) {
+			System.out.println("No podemos servirle su café porque no dispone de café");
+		}else {
+			System.out.println("A usted se le ha servido un café con la siguiente cantidad= ");
+			if(cafeteraactual2>0) {
+				double servido3=0.1;
+				System.out.print(servido3+" litros");
+				this.cafeteraactual2=(int) (this.cafeteraactual2-servido3);
+				System.out.println("Le queda en la cafetera= "+this.cafeteraactual2+" litros");
+			}
+		}
+	}
+	public void vaciarCafetera1(boolean llena,int capacidadActual) {
+		if(capacidadActual!=0) {
+			this.cafeteraActual=0;
+			System.out.println("Se ha procedido a vaciar la cafetera, su capacidad actual es= "+this.cafeteraActual);	
+		}else{
+			System.out.println("No se puede vaciar la cafetera porque ya está vacía");
+		}
+	}
+	public void vaciarCafetera2(boolean llena2,int capacidadaactual1) {
+		if(capacidadaactual1!=0) {
+			this.cafeteraactual1=0;
+			System.out.println("Se ha procedido a vaciar la cafetera, su capacidad actual es= "+this.cafeteraactual1);	
+		}else{
+			System.out.println("No se puede vaciar la cafetera porque ya está vacía");
+		}
+	}
+	
+	public void vaciarCafetera3(boolean llena3,int capacidadaactual2) {
+		if(capacidadaactual2!=0) {
+			this.cafeteraactual2=0;
+			System.out.println("Se ha procedido a vaciar la cafetera, su capacidad actual es= "+this.cafeteraactual2);	
+		}else{
+			System.out.println("No se puede vaciar la cafetera porque ya está vacía");
+		}
+	}
+	public void agregarCafe(int cantidad1,int capacidadActual,int capacidadMaxima) {
+		if(cantidad1>=capacidadMaxima) {
+			System.out.println("No podemos agregar más café a la cafetera, ya que se está superando la capacidad máxima");
+		}else {
+			int capacidadtotal=capacidadActual+cantidad1;
+			if(capacidadtotal>capacidadMaxima) {
+				System.out.println("No se puede agregar el café solicitado porque supera la capacidad de la cafetera");
+			}else {
+				System.out.println("Su capacidad actual es= "+capacidadtotal);
+			}
+		}
+	}
+	public void agregarCafe2(int cantidad2,int capacidadaactual1,int capacidadmaxima1) {
+		if(cantidad2>=capacidadmaxima1) {
+			System.out.println("No podemos agregar más café a la cafetera, ya que se está superando la capacidad máxima");
+		}else {
+			int capacidadtotal2=capacidadaactual1+cantidad2;
+			if(capacidadtotal2>capacidadmaxima1) {
+				System.out.println("No se puede agregar el café solicitado porque supera la capacidad de la cafetera");
+			}else {
+				System.out.println("Su capacidad actual es= "+capacidadtotal2);
+			}
+		}
+	}
+	public void agregarCafe3(int cantidad3,int capacidadaactual2,int capacidadmaxima2) {
+		if(cantidad3>=capacidadmaxima2) {
+			System.out.println("No podemos agregar más café a la cafetera, ya que se está superando la capacidad máxima");
+		}else {
+			int capacidadtotal3=capacidadaactual2+cantidad3;
+			if(capacidadtotal3>capacidadmaxima2) {
+				System.out.println("No se puede agregar el café solicitado porque supera la capacidad de la cafetera");
+			}else {
+				System.out.println("Su capacidad actual es= "+capacidadtotal3);
+			}
+		}
+	}
+//Método main
+public static void main(String[]args) {
+	
+	//Declaración de variables y declaración de objeto cafetera1
+	Cafetera cafetera1=new Cafetera();
+	System.out.println("MENÚ DE MODELO DE CAFETERA 1");
+	System.out.println("1.Muestra los datos de capacidad actual y máxima de su cafetera");
+	System.out.println("2.Muestra si la cafetera está llena o no[true si está llena y false si no lo está]");
+	System.out.println("3.Sirve una taza de café");
+	System.out.println("4.Vacía la cafetera");
+	System.out.println("5.Agrega café a la cafetera");
+	System.out.println("Elija una opción");
+	int opcion1=sc.nextInt();
+	
+	switch(opcion1) {
+	
+	case 1:
+		System.out.println("El total de capacidad máxima de la cafetera 1 es= "+cafetera1.getCafeteraMaxima()+" litros");
+		System.out.println("El total de capacidad actual de la cafetera 1 es= "+cafetera1.getCafeteraActual()+" litros");
+		break;
+	case 2:
+		System.out.println("El sistema muestra si la cafetera está llena o no [true si está llena o false si no lo está ]= "+cafetera1.llenarCafetera1(llena));
+		break;
+	case 3:
+		cafetera1.servirTaza1(cafetera1.getCafeteraActual());
+		System.out.println();
+		break;
+	case 4:
+		cafetera1.vaciarCafetera1(llena, cafetera1.getCafeteraActual());
+		break;
+	case 5:
+		System.out.println("Indique la cantidad a llenar de café en la cafetera");
+		int cantidad1=sc.nextInt();
+		cafetera1.agregarCafe(cantidad1, cafetera1.getCafeteraActual(), cafetera1.getCafeteraMaxima());
+		break;
+	default:
+		System.out.println("Opción no encontrada");
+	}
+	//Declaración de variables y declaración de objeto cafetera2
+	
+	
+	System.out.println("MENÚ DE MODELO DE CAFETERA 2");
+	System.out.println("1.Muestra los datos de capacidad actual y máxima de su cafetera");
+	System.out.println("2.Muestra si la cafetera está llena o no[true si está llena y false si no lo está]");
+	System.out.println("3.Sirve una taza de café");
+	System.out.println("4.Vacía la cafetera");
+	System.out.println("5.Agrega café a la cafetera");
+	
+	int cafeteramaxima1;
+	System.out.println("Determine un valor de capacidad máxima del segundo modelo de cafetera");
+	cafeteramaxima1=sc.nextInt();
+	Cafetera cafetera2=new Cafetera(cafeteramaxima1);
+	
+	System.out.println("Elija una opción");
+	int opcion2=sc.nextInt();
+	switch(opcion2) {
+	
+	case 1:
+		System.out.println("El total de capacidad máxima de la cafetera 2 es= "+cafetera2.CafeteraMaxima1(cafeteramaxima1)+" litros");
+		System.out.println("El total de capacidad actual de la cafetera 2 es= "+cafetera2.CafeteraActual1(cafeteraactual1)+" litros");
+		break;
+	case 2:
+		System.out.println("El sistema muestra si la cafetera está llena o no [true si está llena o false si no lo está ]= "+cafetera2.llenarCafetera2(llena2));
+		break;
+	case 3:
+		cafetera2.servirTaza2(cafeteraactual1);
+		System.out.println();
+		break;
+	case 4:
+		cafetera2.vaciarCafetera2(llena2, cafeteraactual1);
+		break;
+	case 5:
+		System.out.println("Indique la cantidad a llenar de café en la cafetera");
+		int cantidad2=sc.nextInt();
+		cafetera2.agregarCafe2(cantidad2, cafeteraactual1, cafeteramaxima1);
+		break;
+	default:
+		System.out.println("Opción no encontrada");
+	}
+	
+	//Declaración de variables y declaración de objeto cafetera3
+	System.out.println("MENÚ DE MODELO DE CAFETERA 3");
+	System.out.println("1.Muestra los datos de capacidad actual y máxima de su cafetera");
+	System.out.println("2.Muestra si la cafetera está llena o no[true si está llena y false si no lo está]");
+	System.out.println("3.Sirve una taza de café");
+	System.out.println("4.Vacía la cafetera");
+	System.out.println("5.Agrega café a la cafetera");
+	
+	System.out.println("Determine el valor de la capacidad máxima del tercer modelo de cafetera");
+	int cafeteramaxima2=sc.nextInt();
+	System.out.println("Determine el valor de la capacidad actual del tercer modelo de cafetera");
+	int cafeteraactual2=sc.nextInt();
+	Cafetera cafetera3=new Cafetera(cafeteramaxima2,cafeteraactual2);
+	
+	System.out.println("Elija una opción");
+	int opcion3=sc.nextInt();
+	switch(opcion3) {
+	case 1:
+		System.out.println("La capacidad máxima de la cafetera 3 es= "+cafetera3.determinarMaximo(cafeteramaxima2, cafeteraactual2)+" litros");
+		System.out.println("El total de capacidad actual de la cafetera 3 es= "+cafetera3.CafeteraActual2(cafeteraactual2)+" litros");
+		break;
+	case 2:
+		System.out.println("El sistema muestra si la cafetera está llena o no [true si está llena o false si no lo está ]= "+cafetera3.llenarCafetera3(llena3));
+		break;
+	case 3:
+		cafetera3.servirTaza3(cafeteraactual2);
+		System.out.println();
+		break;
+	case 4:
+		cafetera3.vaciarCafetera3(llena3, cafeteraactual2);
+		break;
+	case 5:
+		System.out.println("Indique la cantidad a llenar de café en la cafetera");
+		int cantidad3=sc.nextInt();
+		cafetera3.agregarCafe3(cantidad3, cafeteraactual2, cafeteramaxima2);
+		break;
+	default:
+		System.out.println("Opción no encontrada");
+		}
+	}
+}
